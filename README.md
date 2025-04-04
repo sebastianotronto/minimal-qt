@@ -9,8 +9,8 @@ without using CMake or QT Creator.
 * QT libraries and headers
 * The QT development tools `moc` and `uic`
 
-On Fedora Linux they are contained in the `qt6-qtbase-devel`. I have
-not tested this on other operating systems.
+On Fedora Linux they are contained in the `qt6-qtbase-devel` package.
+I have not tested this on other operating systems.
 
 ## tl;dr
 
@@ -38,8 +38,8 @@ The compilation is done in 3 steps:
 The `Makefile` implements these three steps.
 
 The first two steps are straightforward: first you need to locate the
-`moc` and `uic` command - they are usually in the QT installation
-folder. For example I have them in `/usr/lib64/qt/libexec`. Then run:
+`moc` and `uic` commands. They are usually in the QT installation
+folder - for example I have them in `/usr/lib64/qt/libexec`. Then run:
 
 ```
 /usr/lib64/qt/libexec/moc mainwindow.h > moc_mainwindow.cpp
@@ -53,11 +53,11 @@ For the last step, one needs to include the header files and link with
 the QT libraries.
 
 On my system the header files are in `/usr/include/qt6`. This means I
-need to add the option `-I /usr/include/qt6` to my `gcc` command. This
-simple project also requires headers contained in a subfolder of this,
+need to add the option `-I /usr/include/qt6` to my `g++` command. This
+project also requires headers contained in a subfolder of this,
 so I will add a second `-I` option (see the full command below).
 
-As for the system libraries, in my case they are installed in a system
+As for the shared libraries, in my case they are installed in a system
 folder that is scanned by default by the linker, so I don't have to
 specify the path.  We need the files `libQt6Widgets.so`, `libQt6Core.so`
 and `libQt6Gui.so`, which we can include with
