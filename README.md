@@ -17,7 +17,7 @@ not tested this on other operating systems.
 If you just want to try out this program you can run (if you have `make` installed)
 
 ```
-$ make && ./run
+make && ./run
 ```
 
 ## Explanation
@@ -42,8 +42,8 @@ The first two steps are straightforward: first you need to locate the
 folder. For example I have them in `/usr/lib64/qt/libexec`. Then run:
 
 ```
-$ /usr/lib64/qt/libexec/moc mainwindow.h > moc_mainwindow.cpp
-$ /usr/lib64/qt/libexex/uic mainwindow.ui > ui_mainwindow.h
+/usr/lib64/qt/libexec/moc mainwindow.h > moc_mainwindow.cpp
+/usr/lib64/qt/libexex/uic mainwindow.ui > ui_mainwindow.h
 ```
 
 These steps can be skipped if one prefers to write the `moc_` and `ui_`
@@ -67,7 +67,7 @@ locate them and include their folder with `-L /path/to/the/folder`.
 So the command for step 3 becomes:
 
 ```
-$ g++ main.cpp mainwindow.cpp moc_mainwindow.cpp \
+g++ main.cpp mainwindow.cpp moc_mainwindow.cpp \
 	-I /usr/include/qt6 -I /usr/include/qt6/QtWidgets \
 	-lQt6Widgets -lQt6Core -lQt6Gui
 	-o run
@@ -76,5 +76,5 @@ $ g++ main.cpp mainwindow.cpp moc_mainwindow.cpp \
 And finally you can enjoy your new app:
 
 ```
-$ ./run
+./run
 ```
